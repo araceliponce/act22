@@ -1,0 +1,16 @@
+<!-- create and set an aria attribute for assistive technology -->
+<button class="d-none" type="button" [attr.aria-label]="actionName">{{actionName}} with Aria</button>
+
+
+<section class="col-5 mx-auto p-3 bg-light">
+  <h2>Log In</h2>
+  <section class="form-group">
+    <label for="username">Username:</label>
+    <input type="text" class="form-control" id="username">
+  </section>
+  <section class="form-group">
+    <label for="password">Password:</label>
+    <input type="text" class="form-control" id="password">
+  </section>
+  <input class="btn btn-primary" (click)="login()" value="Log in">
+</section>
