@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+.grid {
+  display: grid;
+  min-height: 70vh;
+}
+
+.is-narrow {
+  width: min(26rem, 95%);
+  align-self: center;
+  padding: 1rem;
+  border-radius: .5rem;
+  background-color: lightpink;
+}
+
+.field.is-grouped {
+  width: fit-content;
+  margin-inline: auto;
+}
+
+
+.mia {
+  width: fit-content;
+  background-color: palevioletred;
+  margin-inline: auto !important;
+}

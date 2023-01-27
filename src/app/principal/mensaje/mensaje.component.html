@@ -1,8 +1,17 @@
-<h3>Enviamos tus sugerencias</h3>
-<section class="col-3 container-contacto">
-  <section class="form-group">
-    <label for="men">Mensaje:</label>
-    <textarea class="form-control" name="men" [(ngModel)]="mensaje"></textarea>
+<div class="grid">
+  <section class="container is-narrow">
+    <h3>Enviamos tus sugerencias</h3>
+
+    <div class="field">
+      <label class="label">Message</label>
+      <div class="control">
+        <textarea class="textarea" placeholder="..." [(ngModel)]="mensaje"></textarea>
+      </div>
+    </div>
+    <div class="field is-grouped is-grouped-right">
+      <button class="button is-primary" (click)="EnviarMensaje()">
+        Submit
+      </button>
+    </div>
   </section>
-  <input class="btn btn-primary" value="Enviar" (click)="EnviarMensaje()">
-</section>
+</div>

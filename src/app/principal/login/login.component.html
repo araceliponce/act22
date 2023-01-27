@@ -1,16 +1,23 @@
-<!-- create and set an aria attribute for assistive technology -->
-<button class="d-none" type="button" [attr.aria-label]="actionName">{{actionName}} with Aria</button>
+<div class="grid">
 
+  <section class="container is-narrow">
 
-<section class="col-5 mx-auto p-3 bg-light">
-  <h2>Log In</h2>
-  <section class="form-group">
-    <label for="username">Username:</label>
-    <input type="text" class="form-control" id="username">
+    <div class="field">
+      <label class="label" for="name">Name</label>
+      <div class="control">
+        <input id="name" class="input" type="text" [(ngModel)]="nombre">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="password">Password</label>
+      <div class="control">
+        <input id="password" class="input" type="password" [(ngModel)]="pass">
+      </div>
+    </div>
+    <div class="field">
+      <button type="button" class="button is-primary mia" (click)="login()">LOGIN</button>
+    </div>
+    <small>ingresa usando 'test' como name y password</small>
   </section>
-  <section class="form-group">
-    <label for="password">Password:</label>
-    <input type="text" class="form-control" id="password">
-  </section>
-  <input class="btn btn-primary" (click)="login()" value="Log in">
-</section>
+</div>

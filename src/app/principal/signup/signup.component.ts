@@ -2,6 +2,12 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
+interface Persona{
+  firstname: string,
+ username: string,
+ email: string,
+}
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -13,45 +19,43 @@ export class SignupComponent {
   enviado:boolean=false;
 
   //para el formulario
-    constructor(private formBuilder: FormBuilder) { }
   
-  registroForm = this.formBuilder.group({
-      firstname:['', Validators.required],
-      lastname:['', Validators.required],
-      username:['', Validators.required],
-      password:['', Validators.required]
-  })
-  
-  get firstname(){return this.registroForm.get('firstname')}
-  get lastname(){return this.registroForm.get('lastname')}
-  get username(){return this.registroForm.get('username')}
-  get password(){return this.registroForm.get('password')}
-  
-  
-  datos = new Array();
-    Enviar(){ 
-    this.datos.push({
-    'FirstName' : this.registroForm.get('firstname')?.value,
-    'LastName' : this.registroForm.get('lastname')?.value,
-    'Username' : this.registroForm.get('username')?.value,
-    'Password' : this.registroForm.get('password')?.value,
-    })
-    this.enviado=true;
+ 
+//usuario es una Persona
+ usuario:Persona={
+  firstname: '',
+  username: '',
+  email: ''
+ }
+
+Enviar(){
+  console.log(this.usuario);
+}
+
+Cancelar(){
+  this.usuario={
+    firstname: '',
+    username: '',
+    email: ''
   }
+  console.log(this.usuario);
+}
    
   //fin
 
   //metodo de este componente se llama igual al de candeactivate guard
   SalirDeRuta(): Observable<boolean> | boolean{  
-    //this.registroForm.valid ||   
-    // Si el form de registro fue enviado es true entonces SÍ puede salir
-    if(this.enviado){ //aqui falta agregar alguna condicion que revise si el form tiene algun dato escrito
-    return true;
-    }
+    // Si el form de registro fue enviado o los campos estan vacios, entonces SÍ puede salir
+    const isEmpty = !Object.values(this.usuario).join(''); //retorna true si el objeto esta vacío y false si el objeto tiene algun contenido
+    console.log(this.usuario,this.enviado,isEmpty);
 
+    if(isEmpty || this.enviado){ 
+    return true;
+    } else{
     //de lo contrario    
-    const confirmar = confirm("¿Desea abandonar el formulario? \n Perdera todos los datos!!");
+    const confirmar = confirm("¿Desea abandonar el formulario? \n Perdera los datos que no haya enviado!!");
     return confirmar;
     }
+    }   
 
 }

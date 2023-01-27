@@ -20,14 +20,14 @@ export class MensajeComponent {
   SalirDeRuta(): Observable<boolean> | boolean{
     // Crietrio para evitar que el usuario abandone el cpomponente
     
-    // Si mensaje  esta vacio o enviado es true entonces SÍ puede salir
+    // Si no hay mensaje (o esta vacio) o enviado es true entonces SÍ puede salir
     if(!this.mensaje || this.enviado ){
-      alert('mensaje no vacio o ya fue enviado')
-    return true;
+      console.log('puede abandonar la página')
+      return true;
     }
 
     //de lo contrario    
-    const confirmar = confirm("¿Desea abandonar el formulario? \n Perdera todos los datos!!");
+    const confirmar = confirm("¿Desea abandonar el formulario? \n Perderá todos los datos!!");
     return confirmar;
     }
 }

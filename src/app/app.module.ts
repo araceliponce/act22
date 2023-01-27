@@ -7,6 +7,7 @@ import { PrincipalModule } from './principal/principal.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserinterceptorsService } from './services/userinterceptors.service';
+import { RouterLinkActive } from '@angular/router';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UserinterceptorsService } from './services/userinterceptors.service';
     BrowserModule,
     AppRoutingModule,
     PrincipalModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterLinkActive
   ],
   providers: [
     {
